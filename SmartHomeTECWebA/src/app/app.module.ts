@@ -12,6 +12,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { InfoComponent } from './info/info.component';
 import { EshopComponent } from './eshop/eshop.component';
 
+
 //Definicion de los URLS para navegar en la Web
 const appRoutes: Routes = [
   //Definicion de los URLS para navegar en la Web

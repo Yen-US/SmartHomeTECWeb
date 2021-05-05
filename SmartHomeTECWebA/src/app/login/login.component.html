@@ -41,32 +41,27 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Smart Home TEC Administrator</h1>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                    <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+                                        <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                          Something is wrong!
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                          <input type=text id="Username" name="Username" class="form-control" placeholder="Enter Email Address..." ngModel required>
+                                        </div>
+                                        <div class="form-group">
+                                          <input type=password id="Password" name="Password" class="form-control" placeholder=Password ngModel required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name=Remember ngModel>
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="dash" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
                                         
-                                    </form>
-                                   <!--  <div class="text-center">
-                                        <a class="small" href="dash">Forgot Password?</a>
-                                    </div>-->
+                                        <button type ="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+                                        <hr>
+                                      </form>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +87,10 @@
     <div>.</div>
     <div>.</div>
     <div>.</div>
+    <div>.</div>
+    
 </body>
 
 
 </html>
+

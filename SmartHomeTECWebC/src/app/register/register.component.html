@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,46 +33,48 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form #formRegister="ngForm" (ngSubmit)="onRegister(formRegister)">
+                                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                    Something is wrong!
+                                  </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <input type=text class="form-control form-control-user" id="FirstName" name="FirstName"
+                                            placeholder="First Name" ngModel required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <input type=text class="form-control form-control-user" id="LastName" name="LastName"
+                                            placeholder="Last Name" ngModel required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <input type=email class="form-control form-control-user" id="InputEmail" name="InputEmail"
+                                        placeholder="Email Address" ngModel required>
                                 </div>
                                 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type=password class="form-control form-control-user" name="InputPassword"
+                                            id="InputPassword" placeholder="Password" ngModel required> 
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <input type=password class="form-control form-control-user" name="RepeatPassword"
+                                            id="RepeatPassword" placeholder="Repeat Password" ngModel required>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <select class="form-control" id="inputGroupSelect01">
-                                      <option selected>Choose your region</option>
+                                    <select class="form-control form-control-user" id="inputGroupSelect" name="inputGroupSelect" placeholder="Choose your region..." ngModel>
                                       <option value="America">America</option>
                                       <option value="Asia">Asia</option>
                                       <option value="Africa">Africa</option>
                                       <option value="Europe">Europe</option>
                                       <option value="Oceania">Oceania</option>
-                                    </select>
+                                    </select >
                                   </div>
 
-                                <a href="login" class="btn btn-primary btn-user btn-block">
+                                <button type = submit class="btn btn-primary btn-user btn-block">
                                     Register Account
-                                </a>
+                                </button>
                             </form>
                             <hr>
                             <div class="text-center">

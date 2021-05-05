@@ -9,12 +9,14 @@ import { RegisterComponent } from './register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { EshopComponent } from './eshop/eshop.component';
 import { ReportComponent } from './report/report.component';
+import { ProfileComponent } from './profile/profile.component';
 const appRoutes: Routes = [
   //Definicion de los URLS para navegar en la Web
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'report', component: ReportComponent },
   { path: 'eshop', component: EshopComponent },
+  { path: 'profile', component: ProfileComponent },
 
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent }
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     NotfoundComponent,
     EshopComponent,
-    ReportComponent
+    ReportComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

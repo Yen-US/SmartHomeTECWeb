@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
-/*import { JsonService } from "../json.service"*/
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class LoginComponent {
-  constructor(/*public json:JsonService,*/ private router: Router, private location: Location) { 
-  }
-  
+export class ProfileComponent {
+
+  constructor() { }
+
   public isError = false
 
   public OnInit(){}
 //metodo onLogin verifica si el form del html es valida, envia el username y password al metodo post y espera respuesta del API
-  public onLogin(form: NgForm){
+  public onProfile(form: NgForm){
     if (form.valid) {
       //this.json.postJson(1,form.value).subscribe((res:any) => {
         /*console.log(res);
@@ -29,6 +28,7 @@ export class LoginComponent {
         }
       }); */
           console.log(form.value)
+          window.location.reload();
           
           
           
@@ -46,4 +46,3 @@ export class LoginComponent {
   }
 
 }
-

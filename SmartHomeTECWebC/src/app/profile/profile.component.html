@@ -109,7 +109,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Usage Reports</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Your Profile</h1>
                         <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
@@ -118,28 +118,41 @@
                     <div class="row">
 
                         <div class="row mg-b-30">
-                            <div class="d-xl-inline-flex align-items-center justify-content mb-2">
-                            <div class="form-group mb-2 d-xl">
-                                <select class="form-control" id="inputGroupSelect01">
-                                  <option selected>Choose the report that you want to download</option>
-                                  <option value="1">Monthly consumption per device report</option>
-                                  <option value="2">Highest use of devices per day period report</option>
-                                  <option value="3">Devices most used per device type report</option>
-                                </select>
-                              </div>
-                              <button type="button" class="btn btn-outline-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">  
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>  
-                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/> </svg>
-                            </button>
-                        </div>
-                    
+                            <div class="col mr-2">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Edit Profile</div>
+                                    <form #formProfile="ngForm" (ngSubmit)="onProfile(formProfile)">
+                                        <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                            Something is wrong!
+                                          </div>
+                                    <input type="text" class="form-control bg-light border-0 small" name = info1 placeholder="info1" 
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info2 placeholder="info2"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info3 placeholder="info3"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info4 placeholder="info4"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info5 placeholder="info5"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info6 placeholder="info6"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <input type="text" class="form-control bg-light border-0 small" name = info7 placeholder="info7"
+                                    aria-label="Search" aria-describedby="basic-addon2" >
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search fa-sm">Save Information</i>
+                                    </button>
+                                </form>
                             </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                         
                     </div>
-                    <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
-
                     <!-- Content Row -->
 
                 
@@ -172,7 +185,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    <p>profile works!</p>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
