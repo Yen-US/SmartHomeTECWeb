@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
-/*import { JsonService } from "../json.service"*/
+import { JsonService } from "../json.service"
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(/*public json:JsonService,*/ private router: Router, private location: Location) { 
+  constructor(public json:JsonService, private router: Router, private location: Location) { 
   }
   
   public isError = false
@@ -19,15 +19,15 @@ export class RegisterComponent {
 //metodo onLogin verifica si el form del html es valida, envia el username y password al metodo post y espera respuesta del API
   public onRegister(form: NgForm){
     if (form.valid) {
-      //this.json.postJson(1,form.value).subscribe((res:any) => {
-        /*console.log(res);
-        if(res=="Ok"){
-          this.router.navigate(['/home']);
+      this.json.postJson(2,form.value).subscribe((res:any) => {
+        console.log(res);
+        if(res=="El usuario se ha agregado exitosamente"){
+          this.router.navigate(['/login']);
           this.isError = false;
         }else{
           this.isError = true;
         }
-      }); */
+      }); 
           console.log(form.value)
           
           

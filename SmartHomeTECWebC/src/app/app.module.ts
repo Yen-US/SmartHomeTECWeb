@@ -10,6 +10,10 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { EshopComponent } from './eshop/eshop.component';
 import { ReportComponent } from './report/report.component';
 import { ProfileComponent } from './profile/profile.component';
+import { JsonService } from './json.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
 const appRoutes: Routes = [
   //Definicion de los URLS para navegar en la Web
   { path: 'login', component: LoginComponent },
@@ -35,12 +39,13 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [JsonService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

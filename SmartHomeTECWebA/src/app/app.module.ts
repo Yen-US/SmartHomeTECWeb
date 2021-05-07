@@ -11,6 +11,8 @@ import { DashComponent } from './dash/dash.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { InfoComponent } from './info/info.component';
 import { EshopComponent } from './eshop/eshop.component';
+import { JsonService } from './json.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 //Definicion de los URLS para navegar en la Web
@@ -37,12 +39,13 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [JsonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
