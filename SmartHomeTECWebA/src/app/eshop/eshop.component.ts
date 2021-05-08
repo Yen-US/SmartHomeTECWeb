@@ -7,7 +7,6 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./eshop.component.css']
 })
 export class EshopComponent {
-  name = 'This is XLSX TO JSON CONVERTER';
   willDownload = false;
   constructor() { }
 

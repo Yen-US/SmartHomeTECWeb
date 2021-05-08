@@ -191,175 +191,57 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                New Device 1</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Device Name 2</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-success" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Device Name 3
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-info" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
+                                                New Device</div>
+                                            <form #formNew="ngForm" (ngSubmit)="onNew(formNew)">
+                                                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                                    Something is wrong!
                                                 </div>
-                                                
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Serial #</span>     
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Serie
+                                                aria-label="Search" aria-describedby="basic-addon3" ngModel required>
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Device Name 4</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-warning" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Brand</span>  
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Marca
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Electrical consumption</span>  
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Consumo_Electrico
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Place</span>  
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Aposento
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Warranty</span>  
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Tiempo_Garantia
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Device Category</span>  
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="" name=Nombre
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon3">Description</span>  
+                                                <textarea type="text" class="form-control bg-light border-0 small" name=Decripcion
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel></textarea>
+                                            </div>
+                                            
+                                                <button class="btn btn-outline-success" type="submit">
+                                                    <i class="fas fa-search fa-sm">Save New Device</i>
                                                 </button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<!--Second row-->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                Device Name 5</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-danger" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
+                                            </form>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -370,117 +252,67 @@
                         </div>
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-secondary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                                Device Name 6</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-secondary" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let device of listaDisp; index as i">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Device Name 7
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
-                                                </button>
+                                        <div class="col mr-0">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                {{device.Nombre}}</div>
+                                                <form #formNew="ngForm" (ngSubmit)="onEdit(formNew, device)">
+                                                    <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                                        Something is wrong!
+                                                    </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Serial #</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Serie}}" name=Serie
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Brand</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Marca}}" name=Marca
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Electrical consumption</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Consumo_Electrico}} W." name=Consumo_Electrico
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Place</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Aposento}}" name=Aposento
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Warranty</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Tiempo_de_garantia}} Y." name=Tiempo_Garantia
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Device Category</span>   
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Nombre}}" name=Nombre
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon3">Description</span>   
+                                                <textarea type="text" class="form-control bg-light border-0 small" placeholder="{{device.Descripcion}}" name=Decripcion
+                                                aria-label="Search" aria-describedby="basic-addon2" ngModel></textarea>
                                                 </div>
                                                 
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-dark shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                                Device Name 8</div>
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Serial#"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Brand"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Electrical consumption"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Place"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Description"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Warranty"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Device Category"
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                                <button class="btn btn-dark" type="button">
-                                                    <i class="fas fa-search fa-sm">Save Information</i>
+                                                <button class="btn btn-primary" type="submit">
+                                                    <i class="fas fa-search fa-sm">Update Information</i>
                                                 </button>
+                                            </form>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
-                    <!-- Content Row -->
-
-                
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -501,33 +333,5 @@
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
-
 </html>
