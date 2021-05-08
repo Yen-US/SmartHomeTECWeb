@@ -10,15 +10,9 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <!--<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <!--<link href="css/sb-admin-2.min.css" rel="stylesheet">-->
 
 </head>
 
@@ -33,7 +27,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" >
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="bi bi-house"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Smart Home TEC</div>
             </a>
@@ -44,86 +38,16 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="dash">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="bi bi-speedometer"></i>
                     <span>Dashboard</span></a>
                 <a class="nav-link" href="info">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="bi bi-info-circle"></i>
                     <span>Information</span></a>
                     <a class="nav-link" href="eshop">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <i class="bi bi-shop"></i>
                         <span>Manage eShop</span></a>
             </li>
-
-            <!-- Divider 
-            <hr class="sidebar-divider">
--->
-            <!-- Heading 
-            <div class="sidebar-heading">
-                Interface
-            </div>
--->
-            <!-- Nav Item - Pages Collapse Menu -->
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-
-            <!-- Divider 
-            <hr class="sidebar-divider">
--->
-            <!-- Heading 
-            <div class="sidebar-heading">
-                Addons
-            </div>
--->
-            <!-- Nav Item - Pages Collapse Menu 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
--->
-            <!-- Nav Item - Charts 
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
--->
-            <!-- Nav Item - Tables 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
--->
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) 
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
--->
-            <!-- Sidebar Message 
-            <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="assets/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
--->
         </ul>
         <!-- End of Sidebar -->
 
@@ -149,7 +73,7 @@
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                    <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -158,16 +82,12 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                       
-                        <!-- Nav Item - Messages -->
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a type="button" class="dropdown-item" href="login" data-toggle="modal" data-target="#logoutModalLabel" >
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Log Out</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Log Out <i class="bi bi-door-open"></i></span>
                             </a>
                             <!-- Dropdown - User Information -->
                            
@@ -184,8 +104,6 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Device Information</h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
 
                     <!-- Content Row -->
@@ -239,7 +157,7 @@
                                             </div>
                                             
                                                 <button class="btn btn-outline-success" type="submit">
-                                                    <i class="fas fa-search fa-sm">Save New Device</i>
+                                                    <i class="bi bi-arrow-90deg-down"> Save New Device</i>
                                                 </button>
                                             </form>
                                         </div>
@@ -253,11 +171,11 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4" *ngFor="let device of listaDisp; index as i">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-{{colors[i]}} shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-0">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-{{colors[i]}} text-uppercase mb-1">
                                                 {{device.Nombre}}</div>
                                                 <form #formNew="ngForm" (ngSubmit)="onEdit(formNew, device)">
                                                     <div class="alert alert-danger" role="alert" *ngIf="isError">
@@ -299,8 +217,8 @@
                                                 aria-label="Search" aria-describedby="basic-addon2" ngModel></textarea>
                                                 </div>
                                                 
-                                                <button class="btn btn-primary" type="submit">
-                                                    <i class="fas fa-search fa-sm">Update Information</i>
+                                                <button class="btn btn-{{colors[i]}}" type="submit">
+                                                    <i class="bi bi-arrow-90deg-up"> Update Information</i>
                                                 </button>
                                             </form>
                                         </div>

@@ -14,6 +14,7 @@ export class InfoComponent implements OnInit {
   public postEdit:any;
   constructor(public json:JsonService, private router: Router) { }
   public isError = false
+  colors = ['primary', 'secondary', 'success','info', 'danger', 'warning',"dark"];
   ngOnInit(): void {
     this.json.getJson(2).subscribe((res:any) => {
       console.log(res);
