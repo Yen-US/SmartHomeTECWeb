@@ -43,19 +43,18 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="dash">
-                    <i class="bi bi-speedometer"></i>
-                    <span>Dashboard</span></a>
-                <a class="nav-link" href="info">
-                    <i class="bi bi-info-circle"></i>
-                    <span>Information</span></a>
-                    <a class="nav-link" href="eshop">
-                        <i class="bi bi-shop"></i>
-                        <span>Manage eShop</span></a>
+                <a class="nav-link" href="eshop">
+                    <i class="bi bi-shop"></i>
+                    <span>Online Store</span></a>
+                <a class="nav-link" href="report">
+                    <i class="bi bi-file-earmark-break"></i>
+                    <span>Usage Reports</span></a>
+                    <a class="nav-link" href="profile">
+                        <i class="bi bi-file-person"></i>
+                        <span>Manage Profile</span></a>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
--->
         </ul>
         <!-- End of Sidebar -->
 
@@ -77,6 +76,9 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
+                            <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                Something is wrong!
+                              </div>
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -117,37 +119,43 @@
                     
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">eShop</h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+                        <form #formProfile="ngForm" (ngSubmit)="onRegion(formProfile)">
                                 <div class="form-group d-none d-sm-inline-block mb-3">
-                                    <select class="form-control" id="inputGroupSelect01">
-                                      <option selected>Select Region</option>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon3">Region</span> 
+                                    <select class="form-control" id="inputGroupSelect" name=region ngModel>
                                       <option value="America">America</option>
                                       <option value="Asia">Asia</option>
                                       <option value="Africa">Africa</option>
-                                      <option value="Europe">Europe</option>
+                                      <option value="Europa">Europe</option>
                                       <option value="Oceania">Oceania</option>
                                     </select>
+                                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i></button>
                                   </div>
+                                </div>
+                        </form>
+                                  
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success border-bottom-success shadow h-100 py-2">
+                    <div class="row">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngFor="let device of devices; index as i">
+                        <div class="card border-left-{{colors[i]}} border-bottom-{{colors[i]}} shadow h-100 py-2" >
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-{{colors[i]}} text-uppercase mb-1">
                                             New Device</div>
-                                                <h1 class="title">Xiaomi Light Bulb</h1>
+                                                <h1 class="title">{{device.Nombre}} {{device.Marca}} {{device.Decripcion}}</h1>
                                                 <div class="mt-2">
-                                                    <h4 class="text-muted">Warranty: 2 Years </h4>
+                                                    <h4 class="text-muted">Warranty: {{device.Tiempo_Garantia}} Years </h4>
                                                     <h2 class="text-dark text-muted">₡20 000</h2>
-                                                    <a class="btn btn-lg btn-outline-success float-right">Buy Now <i class="bi bi-cart2"></i></a>
+                                                    <a class="btn btn-lg btn-outline-{{colors[i]}} float-right">Buy Now <i class="bi bi-cart2"></i></a>
                                                 </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                     <!-- Content Row -->
 
                 

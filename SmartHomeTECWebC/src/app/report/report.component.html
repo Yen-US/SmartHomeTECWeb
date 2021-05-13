@@ -40,15 +40,15 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="dash">
-                    <i class="bi bi-speedometer"></i>
-                    <span>Dashboard</span></a>
-                <a class="nav-link" href="info">
-                    <i class="bi bi-info-circle"></i>
-                    <span>Information</span></a>
-                    <a class="nav-link" href="eshop">
-                        <i class="bi bi-shop"></i>
-                        <span>Manage eShop</span></a>
+                <a class="nav-link" href="eshop">
+                    <i class="bi bi-shop"></i>
+                    <span>Online Store</span></a>
+                <a class="nav-link" href="report">
+                    <i class="bi bi-file-earmark-break"></i>
+                    <span>Usage Reports</span></a>
+                    <a class="nav-link" href="profile">
+                        <i class="bi bi-file-person"></i>
+                        <span>Manage Profile</span></a>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
@@ -108,39 +108,135 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Usage Reports</h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
-                    </div>
+                    
 
                     <!-- Content Row -->
                     <div class="row">
+                        <div class="row mg-b-30">
+                        <form #formProfile="ngForm" (ngSubmit)="onProfile(formProfile)">
+                            <span class="alert alert-danger" role="alert" *ngIf="isError">
+                                Something is wrong!
+                              </span>
+                              <div class="input-group mb-3">
+                                
+                                <span class="input-group-text" id="basic-addon3">Choose the report</span>  
+                                <select class="form-control" name=report ngModel>
+                                    <option value=1>Monthly consumption per device, report</option>
+                                    <option value=3>Highest use of devices per day period, report</option>
+                                    <option value=2>Devices most used per device type, report</option>
+                                  </select>
+                                    <span class="input-group-text" id="basic-addon3">Month</span> 
+                                      <input class="form-control" type="date" name=date ngModel>
+                          <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-lg bi-box-arrow-in-down"></i>
+                        </button>
+                              </div>
+                                
+                        </form>
 
                         <div class="row mg-b-30">
                             <div class="d-xl-inline-flex align-items-center justify-content mb-2">
-                            <div class="form-group mb-2 d-xl">
-                                <select class="form-control" id="inputGroupSelect01">
-                                  <option selected>Choose the report that you want to download</option>
-                                  <option value="1">Monthly consumption per device report</option>
-                                  <option value="2">Highest use of devices per day period report</option>
-                                  <option value="3">Devices most used per device type report</option>
-                                </select>
-                              </div>
-                              <button type="button" class="btn btn-outline-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">  
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>  
-                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/> </svg>
-                            </button>
+                            
                         </div>
                     
                             </div>
                         
+                    </div></div>
+                    <!--Report-->
+                    <div class="card shadow mb-4" *ngIf="cRep==3">
+                    <div id="pdfTable" #pdfTable>
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Highest use of devices per day period, report</h6>
+                        </div>
+                        <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Usage in the Morning</th>
+                              <th>Usage in the Noon</th>
+                              <th>Usage in the Night</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>{{rep[0]}}</td>
+                              <td>{{rep[1]}}</td>
+                              <td>{{rep[2]}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                    <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+                </div>
+                      <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
+                    </div>
+                    
+                    <!--Second report-->
+                    <div class="card shadow mb-4" *ngIf="cRep==2">
+                        <div id="pdfTable" #pdfTable>
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Devices most used per device type, report</h6>
+                            </div>
+                            <div class="card-body">
+                            <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Device type most used</th>
+                                  <th>Times used</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let device of rep; index as i">
+                                  <td>{{device.Nombre}}</td>
+                                  <td>{{device.count}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                          <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
+                        </div>
 
-                    <!-- Content Row -->
+                    <!--Third report-->
+                    <div class="card shadow mb-4" *ngIf="cRep==1">
+                        <div id="pdfTable" #pdfTable>
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Monthly consumption per device, report</h6>
+                            </div>
+                            <div class="card-body">
+                            <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Device Serial</th>
+                                  <th>Device Type Name</th>
+                                  <th>Device Place</th>
+                                  <th>Device Brand</th>
+                                  <th>Device Consumption per hour</th>
+                                  <th>Device hours Powered On</th>
+                                  <th>Device Total consuption</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let device of rep; index as i">
+                                  <td>{{device.Serie}}</td>
+                                  <td>{{device.Nombre}}</td>
+                                  <td>{{device.Aposento}}</td>
+                                  <td>{{device.Marca}}</td>
+                                  <td>{{device.Consumo_Electrico}} W</td>
+                                  <td>{{device.Tiempo_Encendido}} hours</td>
+                                  <td>{{device.Consumo_Electrico*device.Tiempo_Encendido}} W</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                          <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
+                        </div>
 
                 
 

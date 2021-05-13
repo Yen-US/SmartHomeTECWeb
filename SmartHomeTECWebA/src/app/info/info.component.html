@@ -203,7 +203,7 @@
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon3">Warranty</span>   
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Tiempo_de_garantia}} Y." name=Tiempo_Garantia
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="{{device.Tiempo_Garantia}} Y." name=Tiempo_Garantia
                                                 aria-label="Search" aria-describedby="basic-addon2" ngModel>
                                                 </div>
                                                 <div class="input-group mb-3">
@@ -217,7 +217,7 @@
                                                 aria-label="Search" aria-describedby="basic-addon2" ngModel></textarea>
                                                 </div>
                                                 
-                                                <button class="btn btn-{{colors[i]}}" type="submit">
+                                                <button class="btn btn-{{colors[i]}}" type="submit" *ngIf="!device.Activo">
                                                     <i class="bi bi-arrow-90deg-up"> Update Information</i>
                                                 </button>
                                             </form>
