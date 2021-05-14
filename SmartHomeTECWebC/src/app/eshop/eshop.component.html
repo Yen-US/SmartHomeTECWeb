@@ -135,7 +135,7 @@
                                                 <div class="mt-2">
                                                     <h4 class="text-muted">Warranty: {{device.Tiempo_Garantia}} Years </h4>
                                                     <h2 class="text-dark text-muted">₡{{device.Precio}}</h2>
-                                                    <a class="btn btn-lg btn-outline-{{colors[i]}} float-right">Buy Now <i class="bi bi-cart2"></i></a>
+                                                    <a class="btn btn-lg btn-outline-{{colors[i]}} float-right" (click)='onBuy(device)'>Buy Now <i class="bi bi-cart2"></i></a>
                                                 </div>
                                     </div>
                                 </div>

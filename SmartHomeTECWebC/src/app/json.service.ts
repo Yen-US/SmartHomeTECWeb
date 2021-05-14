@@ -18,6 +18,8 @@ export class JsonService {
   urlRep2='http://localhost:'+this.apiPort+'/api/Dashboard/ReporteDispositivosU'; 
   urlRep3='http://localhost:'+this.apiPort+'/api/Dashboard/ReportePeriodo';
   urlTL='http://localhost:'+this.apiPort+'/api/Dashboard/TiendaLinea';
+  urlBuy='http://localhost:'+this.apiPort+'/api/Dashboard/EnviarCorreo';
+  
   
 
   constructor(private http: HttpClient) { }
@@ -51,6 +53,8 @@ export class JsonService {
       return this.http.post(this.urlEPerf,obj,this.header);
     }if(ruta==5){
       return this.http.post(this.urlRep1,obj,this.header);
+    }if(ruta==6){
+      return this.http.post(this.urlBuy,obj,this.header);
     }else{
       return this.http.post(this.urlVer,obj,this.header);
     }
