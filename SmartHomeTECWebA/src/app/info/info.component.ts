@@ -9,19 +9,21 @@ import { NgForm } from '@angular/forms';
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.css']
 })
+//InfoComponent Client view to create new devices and edit the information of the existent ones 
 export class InfoComponent implements OnInit {
   public listaDisp:any;
   public postEdit:any;
   constructor(public json:JsonService, private router: Router) { }
   public isError = false
   colors = ['primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark'];
+  //ngOnInit meths, execute always at the beggining when you access this view allows to get the list of devices from the API and assign the same to the listaDisp variable so then can be pulled by the HTML in a for
   ngOnInit(): void {
     this.json.getJson(2).subscribe((res:any) => {
       console.log(res);
       this.listaDisp=res;
     });
   }
-
+//onNew mthod required for the new device card to add new devices, the same passes an NgForm with the informatinon typed by the user and then make the post the API and refresh the page
   public onNew(form: NgForm){
     if (form.valid) {
       this.json.postJson(2,form.value).subscribe((res:any) => {
@@ -38,6 +40,7 @@ export class InfoComponent implements OnInit {
       this.onIsError();
     }
   }
+  //OnEdit methodd required by the edit info card to edit the information of the existent devices, before it passes the information verify that the field is not empty and if not replaces the device onformation and then make the post to the API
   public onEdit(form: NgForm, disp:any){
     if (form.valid) {
       if(form.value.Marca!=""){
@@ -69,7 +72,7 @@ export class InfoComponent implements OnInit {
     }
   }
   
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {

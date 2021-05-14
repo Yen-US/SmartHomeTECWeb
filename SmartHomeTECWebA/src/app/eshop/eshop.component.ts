@@ -6,11 +6,12 @@ import * as XLSX from 'xlsx';
   templateUrl: './eshop.component.html',
   styleUrls: ['./eshop.component.css']
 })
+//Eshop component User view to upload an Excel file and manage the devices available in the Eshop 
 export class EshopComponent {
   willDownload = false;
   constructor() { }
 
-
+//onFilechange detect the new file and send ot to the API after converting the file to JSON
   onFileChange(ev:any) {
     let workBook:any = null;
     let jsonData:any = null;
@@ -30,7 +31,7 @@ export class EshopComponent {
     reader.readAsBinaryString(file);
   }
 
-
+//Method used to provide the user a template at can use to download an example file and then fill it with the information
   setDownload(data:any) {
     this.willDownload = true;
     setTimeout(() => {

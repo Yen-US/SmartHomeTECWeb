@@ -22,7 +22,6 @@ export class ReportComponent implements OnInit {
   rep:any;
   cRep=0;
   constructor(public json:JsonService, private router: Router,private cookieService: CookieService) { }
-  title = 'htmltopdf';
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   

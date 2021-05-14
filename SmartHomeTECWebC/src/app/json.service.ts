@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 //Servicio definido para implementar los POST Y GET del API
 export class JsonService {
-  apiPort="60490"
+  apiPort="49429"
   header={headers:{'Access-Control-Allow-Origin':'http://localhost:4200','Access-Control-Allow-Methods': 'POST', "Access-Control-Allow-Headers": "Content-Type, Authorization"}}
   public ruta=0
   //Definicion de los URLS de conexion

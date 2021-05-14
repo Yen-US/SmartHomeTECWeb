@@ -15,9 +15,9 @@ import { JsonService } from './json.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
-//Definicion de los URLS para navegar en la Web
+
 const appRoutes: Routes = [
-  //Definicion de los URLS para navegar en la Web
+  //URLS definition to navigate through the Web admin app
   { path: 'login', component: LoginComponent },
   { path: 'dash', component: DashComponent },
   { path: 'info', component: InfoComponent },

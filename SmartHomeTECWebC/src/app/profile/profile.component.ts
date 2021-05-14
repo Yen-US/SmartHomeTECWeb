@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit{
   public isError = false
   public profile:any
 
-  public profileCorreo:any = {
+  public profileCorreo = {
     "Correo":""
   };
 

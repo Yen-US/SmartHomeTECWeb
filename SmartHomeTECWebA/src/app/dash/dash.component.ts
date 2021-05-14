@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from "ngx-cookie-service"
 import { JsonService } from "../json.service"
 
 @Component({
@@ -7,17 +6,15 @@ import { JsonService } from "../json.service"
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css']
 })
+//DashComponent contains all overview info of the devices and a lst of them
 export class DashComponent implements OnInit {
-  private cookieValue: string="";
+  //Variable dash used to save the information of the get of the dash
   public dash:any;
 
-  constructor(private cookieService: CookieService, public json:JsonService) { 
+  constructor(public json:JsonService) { 
   }
-
+//nGOnInit method that executes when you open the Dash view and pull the dash information from the API with the getJson Method
   ngOnInit(): void {
-    //cookie
-    this.cookieValue = this.cookieService.get("login-info");
-    console.log(this.cookieValue);
     //getAPI
     this.json.getJson(1).subscribe((res:any) => {
       console.log(res);

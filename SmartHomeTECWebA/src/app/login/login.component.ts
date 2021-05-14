@@ -10,17 +10,18 @@ import { CookieService } from "ngx-cookie-service"
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+//LoginComonent the user gets routed directly to this view when accessing the admin view, it allows the user to login and saves the information in a "login-info" cookie for further reference 
 export class LoginComponent implements OnInit {
   private cookieValue: string="";
 
   constructor(public json:JsonService, private router: Router, private location: Location, private cookieService: CookieService) {}
   
   public isError = false
-
+//ngOnInit method execute always at the beggining when you execute this component, and creates the cookes above mentioned then the info is added
   public ngOnInit(){
     this.cookieService.set("login-info","");
   }
-//metodo onLogin verifica si el form del html es valida, envia el username y password al metodo post y espera respuesta del API
+//onLogin method verify if the info is valid and then make the post to the API, adependeing on the response of the same, routes the admin to the dash view or send an error message, also if te user log in successfully sets the cookie to the email value 
   public onLogin(form: NgForm){
     if (form.valid) {
       this.json.postJson(1,form.value).subscribe((res:any) => {
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     }
   }
   
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {
