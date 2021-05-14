@@ -34,6 +34,8 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Smart Home TEC</h1>
                                     </div>
+                                    <!-- Login information input card trigger the method onLogin with the login form of the input of the user all fields are required -->
+
                                     <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
                                         <div class="alert alert-danger" role="alert" *ngIf="isError">
                                           Something is wrong!
@@ -67,6 +69,7 @@
         </div>
 
     </div>
+    <!-- Random points to extend the backgroud to all the user view the amount of points needed may vary between monitor resolution :) the following are for 1080p monitor-->
     <div>.</div>
     <div>.</div>
     <div>.</div>

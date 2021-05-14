@@ -118,12 +118,9 @@
                                 <div class="card-body">
                                     <div class="mb-1">
                                     <input class="form-control form-control-lg form-control-user" id="formFile" type="file" (change)="onFileChange($event)" />
-
+                                        <button (click)="onSend()">Send</button>
                                     <div id="output"></div>
                                     <br>
-                                    <div *ngIf="willDownload">
-                                        <a id="download"> Download JSON File </a>
-                                    </div>
                                     </div>
                                     
                                 </div>

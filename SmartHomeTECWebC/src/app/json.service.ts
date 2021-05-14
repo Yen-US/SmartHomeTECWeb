@@ -4,12 +4,12 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-//Servicio definido para implementar los POST Y GET del API
+//Serice to implement the Httplient to make calls to the API such as Get and Post
 export class JsonService {
   apiPort="49429"
   header={headers:{'Access-Control-Allow-Origin':'http://localhost:4200','Access-Control-Allow-Methods': 'POST', "Access-Control-Allow-Headers": "Content-Type, Authorization"}}
   public ruta=0
-  //Definicion de los URLS de conexion
+  //URLs to connect definition
   urlVer='http://localhost:'+this.apiPort+'/api/login/verificar';
   urlReg='http://localhost:'+this.apiPort+'/api/login/registrar';
   urlPerf='http://localhost:'+this.apiPort+'/api/login/PerfilUsuario';
@@ -21,7 +21,7 @@ export class JsonService {
   
 
   constructor(private http: HttpClient) { }
-   //Metodo get implementa .get de httpclient
+   //GetJson method implements .get of httpclient, just requires the route number
    getJson(ruta:number){
     if(ruta==1){
       return this.http.get(this.urlPerf,this.header)
@@ -39,7 +39,7 @@ export class JsonService {
 
       
   }
-  //Metodo post implementa .post de httpclient
+  //PostJson method implements .post of httpclient, just requires the route number and the objest to get posted in most cases a JSON
   postJson(ruta:number,obj:any){
     if(ruta==1){
       return this.http.post(this.urlVer,obj,this.header);

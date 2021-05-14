@@ -1,6 +1,11 @@
 import { Component} from '@angular/core';
 import * as XLSX from 'xlsx';
 
+import { JsonService } from "../json.service"
+
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-eshop',
   templateUrl: './eshop.component.html',
@@ -9,7 +14,9 @@ import * as XLSX from 'xlsx';
 //Eshop component User view to upload an Excel file and manage the devices available in the Eshop 
 export class EshopComponent {
   willDownload = false;
-  constructor() { }
+  public isError = false
+  public dataString :any
+  constructor(public json:JsonService,private router: Router, private location: Location) { }
 
 //onFilechange detect the new file and send ot to the API after converting the file to JSON
   onFileChange(ev:any) {
@@ -25,22 +32,26 @@ export class EshopComponent {
         initial[name] = XLSX.utils.sheet_to_json(sheet);
         return initial;
       }, {});
-      const dataString = JSON.stringify(jsonData);
-      this.setDownload(dataString);
+      this.dataString = jsonData;
+      console.log(this.dataString);
+      
     }
+      //this.setDownload(this.dataString);
     reader.readAsBinaryString(file);
   }
 
-//Method used to provide the user a template at can use to download an example file and then fill it with the information
-  setDownload(data:any) {
-    this.willDownload = true;
-    setTimeout(() => {
-      const el = document.querySelector("#download");
-      if(el===null){console.log("null")}
-      else{
-      el.setAttribute("href", `data:text/json;charset=utf-8,${encodeURIComponent(data)}`);
-      el.setAttribute("download", 'xlsxtojson.json');}
-      
-    }, 1000)
+  onSend() {
+    this.json.postJson(4,this.dataString).subscribe((res:any) => {
+      console.log(res);
+    });
   }
+//Method used to provide the user a template at can use to download an example file and then fill it with the information
+  
+  onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -9,14 +9,14 @@ import { JsonService } from "../json.service"
   templateUrl: './eshop.component.html',
   styleUrls: ['./eshop.component.css']
 })
-export class EshopComponent implements OnInit {
+//Eshop component displays the available to pusrchase devices and allow the users to buy them
+export class EshopComponent {
   public isError = false
   constructor(public json:JsonService, private router: Router, private location: Location) { }
   public colors = ['primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark','primary', 'secondary', 'success','info', 'danger', 'warning','dark'];
   devices:any;
-  ngOnInit(): void {
-     
-  }
+
+  //Onregion method receive the region info by the user and updates the devices list with the ones available to purchase
   public onRegion(form: NgForm){
     if (form.valid) {
       this.json.getJson(4).subscribe((res:any) => {
@@ -44,7 +44,7 @@ export class EshopComponent implements OnInit {
     }
   }
   
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {

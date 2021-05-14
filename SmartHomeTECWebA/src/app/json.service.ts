@@ -15,6 +15,7 @@ export class JsonService {
   urlLDisp='http://localhost:'+this.apiPort+'/api/general/ListaDispositivos';
   urlADisp='http://localhost:'+this.apiPort+'/api/general/AgregarDispositivo';
   urlEDisp='http://localhost:'+this.apiPort+'/api/general/EditarDispositivoAdmin';
+  urlExcel='http://localhost:'+this.apiPort+'/api/general/Excel';
   
 
   constructor(private http: HttpClient) { }
@@ -43,6 +44,9 @@ export class JsonService {
     }
     if(ruta==3){
       return this.http.post(this.urlEDisp,obj,this.header);
+    }
+    if(ruta==4){
+      return this.http.post(this.urlExcel,obj,this.header);
     }
     else{
       return this.http.post(this.urlVer,obj,this.header);
