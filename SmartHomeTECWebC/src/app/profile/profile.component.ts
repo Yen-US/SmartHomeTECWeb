@@ -10,6 +10,7 @@ import { JsonService } from "../json.service"
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+//User view that allows to edit all the infomation of the user profile excepting the user email, displas the actual information and after entering the new one and hi dave it changes the info of the user
 export class ProfileComponent implements OnInit{
 
   constructor(public json:JsonService, private router: Router, private location: Location,private cookieService: CookieService) { }
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit{
   public profileCorreo = {
     "Correo":""
   };
-
+//ngOnInit method exectues every time you open this view, and pulls the value of the cookie that storage the email of the user, and them make a POST to the API to request the user information to display
   public ngOnInit(){
     this.cookieValue=this.cookieService.get("login-info");
 
@@ -32,7 +33,7 @@ export class ProfileComponent implements OnInit{
     });
   }
 
-//metodo onLogin verifica si el form del html es valida, envia el username y password al metodo post y espera respuesta del API
+//OnProfile method receive the input rom the user and verify that the inormation changed if so send it to the API after replacing the same on the profile info 
   public onProfile(form: NgForm){
     if (form.valid) {
       if(form.value.Nombre!=""){
@@ -69,7 +70,7 @@ export class ProfileComponent implements OnInit{
     }
     
   }
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {

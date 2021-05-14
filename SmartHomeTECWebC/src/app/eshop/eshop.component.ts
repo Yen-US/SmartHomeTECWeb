@@ -62,7 +62,7 @@ export class EshopComponent implements OnInit{
     }, 4000);
   }
 
-//Method to buy devices
+//Method to buy devices cretes the JSON to send to the API and POST it to the same
   onBuy(dev:any): void {
 
 this.buy={

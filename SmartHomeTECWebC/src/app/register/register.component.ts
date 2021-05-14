@@ -9,14 +9,13 @@ import { JsonService } from "../json.service"
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+//RegisterComponent allows the user to enter therequired information and then if teh informatin is valid, it sends a post to the API with the new users information
 export class RegisterComponent {
   constructor(public json:JsonService, private router: Router, private location: Location) { 
   }
-  
   public isError = false
-
   public OnInit(){}
-//metodo onLogin verifica si el form del html es valida, envia el username y password al metodo post y espera respuesta del API
+//method on register get the user information and if valid send the information to the API with a POST
   public onRegister(form: NgForm){
     if (form.valid) {
       this.json.postJson(2,form.value).subscribe((res:any) => {
@@ -29,15 +28,11 @@ export class RegisterComponent {
         }
       }); 
           console.log(form.value)
-          
-          
-          
     } else {
       this.onIsError();
     }
-    
   }
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {

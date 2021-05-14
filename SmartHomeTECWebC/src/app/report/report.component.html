@@ -1,22 +1,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>SmartHomeTEC</title>
-
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-
 </head>
 
 <body id="page-top">
@@ -84,18 +78,14 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                       
-                        <!-- Nav Item - Messages -->
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                        <!-- Nav Item - User Log Out -->
                         <li class="nav-item dropdown no-arrow">
                             <a type="button" class="dropdown-item" href="login" data-toggle="modal" data-target="#logoutModalLabel" >
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Log Out <i class="bi bi-door-open"></i></span>
                             </a>
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - User Log Out -->
                            
                         </li>
 
@@ -118,7 +108,7 @@
                                 Something is wrong!
                               </span>
                               <div class="input-group mb-3">
-                                
+                                <!-- Input that allows the user select the report that wants to display, just the firts report the date is needed in the rest can be empty -->
                                 <span class="input-group-text" id="basic-addon3">Choose the report</span>  
                                 <select class="form-control" name=report ngModel>
                                     <option value=1>Monthly consumption per device, report</option>
@@ -131,18 +121,10 @@
                             <i class="bi bi-lg bi-box-arrow-in-down"></i>
                         </button>
                               </div>
-                                
                         </form>
-
-                        <div class="row mg-b-30">
-                            <div class="d-xl-inline-flex align-items-center justify-content mb-2">
-                            
-                        </div>
-                    
-                            </div>
-                        
                     </div></div>
-                    <!--Report-->
+
+                    <!--Highest use of devices per day period, report pulls the information from the rep and get the report ready to be exported as PDF-->
                     <div class="card shadow mb-4" *ngIf="cRep==3">
                     <div id="pdfTable" #pdfTable>
                         <div class="card-header py-3">
@@ -172,7 +154,7 @@
                       <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
                     </div>
                     
-                    <!--Second report-->
+                    <!--Devices most used per device type, report report pulls the information from the rep and get the report ready to be exported as PDF -->
                     <div class="card shadow mb-4" *ngIf="cRep==2">
                         <div id="pdfTable" #pdfTable>
                             <div class="card-header py-3">
@@ -200,7 +182,7 @@
                           <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
                         </div>
 
-                    <!--Third report-->
+                    <!--Monthly consumption per device, report report pulls the information from the rep and get the report ready to be exported as PDF -->
                     <div class="card shadow mb-4" *ngIf="cRep==1">
                         <div id="pdfTable" #pdfTable>
                             <div class="card-header py-3">
@@ -237,11 +219,7 @@
                     </div>
                           <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
                         </div>
-
-                
-
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
@@ -257,37 +235,9 @@
             <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
 
     </div>
     <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 

@@ -15,6 +15,7 @@ import htmlToPdfmake from "html-to-pdfmake"
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
+//ReportComponent view that allos the user create a report end export it as PDF, also display a preview of the report before exporting
 export class ReportComponent implements OnInit {
   private cookieValue: string="";
   public isError = false
@@ -22,25 +23,23 @@ export class ReportComponent implements OnInit {
   rep:any;
   cRep=0;
   constructor(public json:JsonService, private router: Router,private cookieService: CookieService) { }
+  //View child to take the pdfTable html to be esported as PDF later
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
-  
+  //downloadAsPDF method used by the donload button to take the html and export it as a PDF this thanks to the htmlToPdfmake library
   public downloadAsPDF() {
     const doc = new jsPDF();
-   
     const pdfTable = this.pdfTable.nativeElement;
-   
     var html = htmlToPdfmake(pdfTable.innerHTML);
-     
     const documentDefinition = { content: html };
     pdfMake.createPdf(documentDefinition).open(); 
-     
   }
 
+  //ngOnInit executes every time this view opens and pull the email information of the user logged in  required for the first report, this saves the info in the cookieValue variable 
   ngOnInit(): void {
     this.cookieValue=this.cookieService.get("login-info");
   }
-  
+  //onProfile used to take the report selected by the user and update the rep variable with the report with either a POST ot get as needed, this also trigers the cRep variable (current report) and change it to display the list and get ready the html to export as a PDF
   public onProfile(form: NgForm){
     if (form.valid) {
       if (form.value.report === "1"){
@@ -76,7 +75,7 @@ export class ReportComponent implements OnInit {
     }
   }
   
-  //metodo onIsError si la form no es valida presenta un component que indica error
+  //method onIsError used to trigger the error message and timeout the same after displaying 
   onIsError(): void {
     this.isError = true;
     setTimeout(() => {
